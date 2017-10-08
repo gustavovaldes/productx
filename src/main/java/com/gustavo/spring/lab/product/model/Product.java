@@ -13,5 +13,5 @@ public class Product {
     private String name;
     private String description;
     private String sku;
-    private Category category;
+    //private Category category;
 }
