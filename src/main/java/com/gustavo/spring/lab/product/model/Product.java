@@ -3,7 +3,6 @@ package com.gustavo.spring.lab.product.model;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -15,17 +14,19 @@ public class Product {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String description;
-    private String sku;
-
+    @Column(nullable = false)
+    private String code;
+    @Column(nullable = false)
+    private double price;
+    @Column(nullable = false)
+    private String currency = "EUR";
     @Ignore
     @Transient
     private double priceEUR;
-
-    private double price;
-    private String currency="EUR";
-
     @OneToOne
     private Category category;
 
@@ -61,12 +62,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getSku() {
-        return sku;
+    public String getCode() {
+        return code;
     }
 
-    public void setSku(String sku) {
-        this.sku = sku;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public double getPrice() {
