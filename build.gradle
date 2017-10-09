@@ -22,6 +22,12 @@ repositories {
 	mavenCentral()
 }
 
+test {
+	reports.html.enabled = false
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
