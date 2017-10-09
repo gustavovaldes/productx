@@ -14,44 +14,45 @@ RESTFul API for Products and Categories, it support CRUD operations and hypermed
 
 `http://localhost:8080/browser/index.html#/`
  
-**Category use**
+##Category use
 
  `http://localhost:8080/category`
  
- Main uses (examples):
+ **Main uses (examples):**
  
- Create
+ **Create**
 ` curl -i -X POST -H "Content-Type:application/json"  -d '{"code": "cat1", "name": "categoryOne", "description": "category one"}' http://localhost:8080/category  -u guga:guga
 ` 
- Search
+
+ **Search**
  `curl http://localhost:8080/category -u guga:guga`
  `curl http://localhost:8080/category/cat1 -u guga:guga`
   
- Update
+ **Update**
  `curl -i -X PATCH -H "Content-Type:application/json"  -d '{"name": "categoryOneUpdated"}' http://localhost:8080/category/cat1  -u guga:guga`
  
- Delete
+ **Delete**
  `curl -i -X DELETE http://localhost:8080/category/cat1  -u guga:guga`
 
-Additionally pagination is provided, full other links can be discovered using HAL.
+_Pagination is also provided, full other links can be discovered using HAL_
 
 
-**Product use**
+##Product use
 
  `http://localhost:8080/product`
  
- Create
+ **Create**
  `curl -i -X POST -H "Content-Type:application/json"  -d '{ "name":"p4", "description":"d1", "currency":"CAD", "price":"10.5", "code":"s1"  }' http://localhost:8080/product -u guga:guga`
  
- Update
+ **Update**
 `  curl -i -X PATCH -H "Content-Type:application/json"  -d '{"category": "http://localhost:8080/category/cat1"}' http://localhost:8080/product/1  -u guga:guga`
 
- Search
+ **Search**
 `curl http://localhost:8080/product/ -u guga:guga`
 `curl http://localhost:8080/product/1 -u guga:guga`
 `curl http://localhost:8080/product/1?projection=inlineCategory -u guga:guga`
 
- Delete
+ **Delete**
  `curl -i -X DELETE http://localhost:8080/product/1  -u guga:guga`
 
 ## More information 
@@ -71,12 +72,13 @@ When product currency is different that EUR,  rate conversion is calculated usin
 latest rate available)
 Information is displayed in attribute priceEUR.  This attribute exist only in the resources, but not in the DB. If the product currency is EUR, priceEUR and price are the same value.
 
-
+## Security
+user/pass :  guga/guga 
 
 ## Run Service
 `./gradlew bootRun`
 
-q
+
 ## Test 
 `./gradlew test`
 
