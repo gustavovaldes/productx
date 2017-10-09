@@ -15,7 +15,7 @@ public class ProductProcessorImpl implements ResourceProcessor<Resource<Product>
 
     @Override
     public Resource<Product> process(Resource<Product> resource) {
-        double rate = fxRateService.getConversion(resource.getContent().getCurrency());
+        double rate = fxRateService.getRate(resource.getContent().getCurrency());
         resource.getContent().setDescription(resource.getContent().getDescription() + rate);
         resource.getContent().setPriceEUR(resource.getContent().getPrice()*rate);
         return resource;

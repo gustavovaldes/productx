@@ -21,7 +21,7 @@ public class CategoryTest {
     @MockBean
     private RestTemplate restTemplate;
     @Test
-    public void testSerialize() throws Exception{
+    public void categoryMarshallingTest() throws Exception{
         Category details = new Category("cat1","category1","category 1");
         String content = "{\"code\":\"cat1\",\"name\":\"category1\", \"description\":\"category 1\"}";
         // Assert against a `.json` file in the same package as the test
@@ -32,7 +32,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void testDeserialize() throws Exception{
+    public void categoryUnmarshallingTest() throws Exception{
         String content = "{\"code\":\"cat1\",\"name\":\"category1\", \"description\":\"category 1\"}";
         assertThat(this.json.parse(content))
                 .isEqualTo(new Category("cat1", "category1","category 1"));

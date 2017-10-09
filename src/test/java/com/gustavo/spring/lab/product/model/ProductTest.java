@@ -22,7 +22,7 @@ public class ProductTest {
     private RestTemplate restTemplate;
 
     @Test
-    public void testSerialize() throws Exception {
+    public void productMarshallingTest() throws Exception {
         Product details = new Product(1L, "p1", "d1", "c1", 1.3d, "EUR", 0, null);
         String content = "{\"id\":1, \"code\":\"c1\",\"name\":\"p1\", \"description\":\"d1\", \"price\":1.3}";
         // Assert against a `.json` file in the same package as the test
@@ -33,7 +33,7 @@ public class ProductTest {
     }
 
     @Test
-    public void testDeserialize() throws Exception {
+    public void productUnmarshallingTest() throws Exception {
         String content = "{\"id\":1, \"code\":\"c1\",\"name\":\"p1\", \"description\":\"d1\", \"price\":1.3, \"currency\":\"EUR\"}";
         assertThat(this.json.parse(content))
                 .isEqualTo(new Product(1L, "p1", "d1", "c1", 1.3d, "EUR", 0, null));

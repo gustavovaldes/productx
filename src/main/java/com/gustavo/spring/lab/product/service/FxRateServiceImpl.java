@@ -4,6 +4,7 @@ import com.gustavo.spring.lab.product.model.FxRates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,7 +19,7 @@ public class FxRateServiceImpl implements FxRateService {
 
     @Cacheable("fxRates")
     @Override
-    public double getConversion(String currency) {
+    public double getRate(String currency) {
         FxRates fxRates = restTemplate.getForObject(FX_RATE_PROVIDER_URI, FxRates.class);
         if(!fxRates.getRates().containsKey(currency)){
             //TODO decide
