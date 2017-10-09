@@ -17,7 +17,7 @@ Using H2 as DB
 
 ## Model
 
-Category and Product: OneToOne relation.
+Category and Product: ManyToOne relation from Product to Category
 
 **Category**: name, description, code (key)
 

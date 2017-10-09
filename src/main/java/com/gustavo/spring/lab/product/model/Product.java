@@ -29,6 +29,6 @@ public class Product {
     @Ignore
     @Transient
     private double priceEUR;
-    @OneToOne
+    @ManyToOne
     private Category category;
 }
