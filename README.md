@@ -1,12 +1,12 @@
-#Product RESTful Api #
+# Product RESTful Api
 
 RESTFul API for Products and Categories, it support CRUD operations and hypermedia (HATEOAS based) 
 
 
-##Prerequisites
+## Prerequisites
 `java8`
 
-##API
+## API
 
 `http://localhost:8080/profile`
 
@@ -31,13 +31,13 @@ _Metrics_: `http://localhost:8080/metrics`
 _Environment_: `http://localhost:8080/env`
 
 
-##Run Service
+## Run Service
 `./gradlew bootRun`
 
 
-##Test 
+## Test 
 `./gradlew test`
 
 
-##Others
+## Others
 
